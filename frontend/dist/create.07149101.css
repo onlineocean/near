@@ -1,0 +1,49 @@
+@font-face {
+  font-family: Acrom;
+  src: url("Acrom-Light.35190b58.eot");
+  src: local(Acrom Light), local(Acrom-Light), url("Acrom-Light.35190b58.eot#iefix") format("embedded-opentype"), url("Acrom-Light.99aa63eb.woff2") format("woff2"), url("Acrom-Light.72c283cd.woff") format("woff"), url("Acrom-Light.7f2db7ac.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Acrom;
+  src: url("Acrom-Thin.be96f788.eot");
+  src: local(Acrom Thin), local(Acrom-Thin), url("Acrom-Thin.be96f788.eot#iefix") format("embedded-opentype"), url("Acrom-Thin.4e6f6591.woff2") format("woff2"), url("Acrom-Thin.548ae269.woff") format("woff"), url("Acrom-Thin.8a90fcf8.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Acrom;
+  src: url("Acrom-Bold.b4bb1646.eot");
+  src: local(Acrom Bold), local(Acrom-Bold), url("Acrom-Bold.b4bb1646.eot#iefix") format("embedded-opentype"), url("Acrom-Bold.e6bcb152.woff2") format("woff2"), url("Acrom-Bold.b7d25ed6.woff") format("woff"), url("Acrom-Bold.edc04413.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Acrom;
+  src: url("Acrom-Regular.6f1f2955.eot");
+  src: local(Acrom), local(Acrom-Regular), url("Acrom-Regular.6f1f2955.eot#iefix") format("embedded-opentype"), url("Acrom-Regular.e5e5c7df.woff2") format("woff2"), url("Acrom-Regular.79f6e28b.woff") format("woff"), url("Acrom-Regular.6d682c47.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Acrom;
+  src: url("Acrom-ExtraBold.934a27b9.eot");
+  src: local(Acrom ExtraBold), local(Acrom-ExtraBold), url("Acrom-ExtraBold.934a27b9.eot#iefix") format("embedded-opentype"), url("Acrom-ExtraBold.01c9b129.woff2") format("woff2"), url("Acrom-ExtraBold.522e981d.woff") format("woff"), url("Acrom-ExtraBold.30973e8a.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Acrom;
+  src: url("Acrom-Medium.e58e71a0.eot");
+  src: local(Acrom Medium), local(Acrom-Medium), url("Acrom-Medium.e58e71a0.eot#iefix") format("embedded-opentype"), url("Acrom-Medium.b853b3a9.woff2") format("woff2"), url("Acrom-Medium.519a2580.woff") format("woff"), url("Acrom-Medium.4b1d8d6a.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+/*# sourceMappingURL=box.07149101.css.map */
