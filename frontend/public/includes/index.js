@@ -16,46 +16,16 @@ let index = {
         
         <div class="project">
             <div class="container">
-                <div class="project__inner" style="pointer-event: none;">
+                <div class="project__inner">
                     <div class="project__title">
                         <div>Launchpad Projects</div> 
                         <img src="assets/img/fire.svg" alt="">
                     </div>
                     <section class="splide" id="projectSlider">
                         <div class="splide__track">
-                            <ul class="splide__list">
-                                <li class="splide__slide">
-                                <div class="slider__item">
-                                    <a href="info.html" class="project__item">
-                                        <img class="img" src="assets/img/slider1.png" alt="">
-                                        <div class="slider__block">Elvion NFT Project</div>
-                                    </a>
-                                </div>
-                                </li>
-                                <li class="splide__slide">
-                                <div class="slider__item">
-                                    <a href="info.html" class="project__item">
-                                        <img class="img" src="assets/img/slider2.png" alt="">
-                                        <div class="slider__block">Elvion NFT Project</div>
-                                    </a>
-                                </div>
-                                </li>
-                                <li class="splide__slide">
-                                    <div class="slider__item">
-                                        <a href="info.html" class="project__item">
-                                            <img class="img" src="assets/img/slider1.png" alt="">
-                                            <div class="slider__block">Elvion NFT Project</div>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="splide__slide">
-                                    <div class="slider__item">
-                                        <a href="info.html" class="project__item">
-                                            <img class="img" src="assets/img/slider2.png" alt="">
-                                            <div class="slider__block">Elvion NFT Project</div>
-                                        </a>
-                                    </div>
-                                </li>
+                            <ul class="splide__list launch_list_main" style="pointer-events: none;">
+                               
+                                
                             </ul>
                         </div>
                         <div class="splide__arrows">

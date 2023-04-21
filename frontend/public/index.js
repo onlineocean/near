@@ -1300,7 +1300,7 @@ async function createInfoPage() {
 
 
 
-function createIndexPage() {
+async function createIndexPage() {
     // let head = document.querySelector('head');
     // let indexHead = `
     //     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/css/splide.min.css">
@@ -1308,6 +1308,47 @@ function createIndexPage() {
     // `;    
     // head.innerHTML += indexHead;
     // log(head)
+    const launchpadTokensRes = await contract.get_launchpad_tokens();
+
+    launchpadTokensRes.forEach((el, ind) => {
+        el[2] = 0;
+        el[1].forEach((y) => {
+            console.log(y[0])
+            if (y[0].metadata.status !== "launchpad") {
+                el[2] += 1;
+            }
+        });
+    });
+
+    let ltr = launchpadTokensRes.filter((el) => el[0] !== ":");
+    log('launchpadTokens')
+    log(ltr)
+
+    let launchMainWrap = document.querySelector('.launch_list_main');
+    
+
+    ltr.forEach((x) => {
+        log('xxxx')
+        log(x[1][0][0].metadata)
+        let launchItem = `
+            <li class="splide__slide" >
+                <div class="slider__item" >
+                    <a href="info.html" class="project__item" style="max-height: 250px;
+                    display: flex;
+                    align-items: center;">
+                        <img class="img" src="http://icp-control.com/${x[1][0][0].metadata.media}" alt="">
+                        <div class="slider__block">${x[1][0][0].metadata.collection_name}</div>
+                    </a>
+                </div>
+            </li>
+        `
+        launchMainWrap.innerHTML += launchItem;
+    });
+
+
+
+
+
 
     new Splide( '#projectSlider', {
         perPage: 2,
