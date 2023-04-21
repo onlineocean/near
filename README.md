@@ -1,100 +1,91 @@
-near-blank-project
-==================
+# Hello NEAR Contract
 
-This app was initialized with [create-near-app]
+The smart contract exposes two methods to enable storing and retrieving a greeting in the NEAR network.
 
+```rust
+const DEFAULT_GREETING: &str = "Hello";
 
-Quick Start
-===========
+#[near_bindgen]
+#[derive(BorshDeserialize, BorshSerialize)]
+pub struct Contract {
+    greeting: String,
+}
 
-If you haven't installed dependencies during setup:
+impl Default for Contract {
+    fn default() -> Self {
+        Self{greeting: DEFAULT_GREETING.to_string()}
+    }
+}
 
-    npm install
+#[near_bindgen]
+impl Contract {
+    // Public: Returns the stored greeting, defaulting to 'Hello'
+    pub fn get_greeting(&self) -> String {
+        return self.greeting.clone();
+    }
 
+    // Public: Takes a greeting, such as 'howdy', and records it
+    pub fn set_greeting(&mut self, greeting: String) {
+        // Record a log permanently to the blockchain!
+        log!("Saving greeting {}", greeting);
+        self.greeting = greeting;
+    }
+}
+```
 
-Build and deploy your contract to TestNet with a temporary dev account:
+<br />
 
-    npm run deploy
+# Quickstart
 
-Test your contract:
+1. Make sure you have installed [rust](https://rust.org/).
+2. Install the [`NEAR CLI`](https://github.com/near/near-cli#setup)
 
-    npm test
+<br />
 
-If you have a frontend, run `npm start`. This will run a dev server.
+## 1. Build and Deploy the Contract
+You can automatically compile and deploy the contract in the NEAR testnet by running:
 
+```bash
+./deploy.sh
+```
 
-Exploring The Code
-==================
+Once finished, check the `neardev/dev-account` file to find the address in which the contract was deployed:
 
-1. The smart-contract code lives in the `/contract` folder. See the README there for
-   more info. In blockchain apps the smart contract is the "backend" of your app.
-2. The frontend code lives in the `/frontend` folder. `/frontend/index.html` is a great
-   place to start exploring. Note that it loads in `/frontend/index.js`,
-   this is your entrypoint to learn how the frontend connects to the NEAR blockchain.
-3. Test your contract: `npm test`, this will run the tests in `integration-tests` directory.
+```bash
+cat ./neardev/dev-account
+# e.g. dev-1659899566943-21539992274727
+```
 
+<br />
 
-Deploy
-======
+## 2. Retrieve the Greeting
 
-Every smart contract in NEAR has its [own associated account][NEAR accounts]. 
-When you run `npm run deploy`, your smart contract gets deployed to the live NEAR TestNet with a temporary dev account.
-When you're ready to make it permanent, here's how:
+`get_greeting` is a read-only method (aka `view` method).
 
+`View` methods can be called for **free** by anyone, even people **without a NEAR account**!
 
-Step 0: Install near-cli (optional)
--------------------------------------
+```bash
+# Use near-cli to get the greeting
+near view <dev-account> get_greeting
+```
 
-[near-cli] is a command line interface (CLI) for interacting with the NEAR blockchain. It was installed to the local `node_modules` folder when you ran `npm install`, but for best ergonomics you may want to install it globally:
+<br />
 
-    npm install --global near-cli
+## 3. Store a New Greeting
+`set_greeting` changes the contract's state, for which it is a `change` method.
 
-Or, if you'd rather use the locally-installed version, you can prefix all `near` commands with `npx`
+`Change` methods can only be invoked using a NEAR account, since the account needs to pay GAS for the transaction.
 
-Ensure that it's installed with `near --version` (or `npx near --version`)
+```bash
+# Use near-cli to set a new greeting
+near call <dev-account> set_greeting '{"message":"howdy"}' --accountId <dev-account>
+```
 
+**Tip:** If you would like to call `set_greeting` using your own account, first login into NEAR using:
 
-Step 1: Create an account for the contract
-------------------------------------------
+```bash
+# Use near-cli to login your NEAR account
+near login
+```
 
-Each account on NEAR can have at most one contract deployed to it. If you've already created an account such as `your-name.testnet`, you can deploy your contract to `near-blank-project.your-name.testnet`. Assuming you've already created an account on [NEAR Wallet], here's how to create `near-blank-project.your-name.testnet`:
-
-1. Authorize NEAR CLI, following the commands it gives you:
-
-      near login
-
-2. Create a subaccount (replace `YOUR-NAME` below with your actual account name):
-
-      near create-account near-blank-project.YOUR-NAME.testnet --masterAccount YOUR-NAME.testnet
-
-Step 2: deploy the contract
----------------------------
-
-Use the CLI to deploy the contract to TestNet with your account ID.
-Replace `PATH_TO_WASM_FILE` with the `wasm` that was generated in `contract` build directory.
-
-    near deploy --accountId near-blank-project.YOUR-NAME.testnet --wasmFile PATH_TO_WASM_FILE
-
-
-Step 3: set contract name in your frontend code
------------------------------------------------
-
-Modify the line in `src/config.js` that sets the account name of the contract. Set it to the account id you used above.
-
-    const CONTRACT_NAME = process.env.CONTRACT_NAME || 'near-blank-project.YOUR-NAME.testnet'
-
-
-
-Troubleshooting
-===============
-
-On Windows, if you're seeing an error containing `EPERM` it may be related to spaces in your path. Please see [this issue](https://github.com/zkat/npx/issues/209) for more details.
-
-
-  [create-near-app]: https://github.com/near/create-near-app
-  [Node.js]: https://nodejs.org/en/download/package-manager/
-  [jest]: https://jestjs.io/
-  [NEAR accounts]: https://docs.near.org/concepts/basics/account
-  [NEAR Wallet]: https://wallet.testnet.near.org/
-  [near-cli]: https://github.com/near/near-cli
-  [gh-pages]: https://github.com/tschaub/gh-pages
+and then use the logged account to sign the transaction: `--accountId <your-account>`.

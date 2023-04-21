@@ -1,30 +1,16 @@
 {
-  "name": "my-near-app",
+  "name": "test-node-app",
   "version": "1.0.0",
-  "license": "(MIT AND Apache-2.0)",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "./start.sh",
-    "build": "parcel build index.html --public-url ./"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "nodemon app.js"
   },
-  "devDependencies": {
-    "env-cmd": "^10.1.0",
-    "events": "^3.3.0",
-    "nodemon": "^2.0.16",
-    "parcel": "^2.7.0",
-    "process": "^0.11.10"
-  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@near-wallet-selector/core": "^7.0.0",
-    "@near-wallet-selector/ledger": "^7.0.0",
-    "@near-wallet-selector/math-wallet": "^7.0.0",
-    "@near-wallet-selector/meteor-wallet": "^7.0.0",
-    "@near-wallet-selector/modal-ui": "^7.0.0",
-    "@near-wallet-selector/my-near-wallet": "^7.0.0",
-    "@near-wallet-selector/near-wallet": "^7.0.0",
-    "@near-wallet-selector/nightly": "^7.0.0",
-    "@near-wallet-selector/nightly-connect": "^7.0.0",
-    "@near-wallet-selector/sender": "^7.0.0",
-    "@near-wallet-selector/wallet-connect": "^7.0.0",
-    "near-api-js": "^0.44.2"
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22"
   }
 }
