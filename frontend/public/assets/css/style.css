@@ -728,6 +728,7 @@ p {
 .launchpad__item-text {
   font-weight: 400;
   font-size: 16px;
+  min-height: 100px;
   line-height: 19px;
   color: #FFFFFF;
   margin-top: 13px;

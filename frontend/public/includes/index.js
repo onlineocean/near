@@ -23,7 +23,7 @@ let index = {
                     </div>
                     <section class="splide" id="projectSlider">
                         <div class="splide__track">
-                            <ul class="splide__list launch_list_main" style="pointer-events: none;">
+                            <ul class="splide__list launch_list_main">
                                
                                 
                             </ul>

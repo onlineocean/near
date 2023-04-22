@@ -1013,21 +1013,31 @@ async function createLaunchpadPage() {
 
     //     launchpadWrap.innerHTML += item;
     
-
-    // });
-
-    // let allLaunchpadItemsBtns = document.querySelectorAll('.launchpad__item a');
     document.addEventListener('click', function(event) {
+
+        console.log(event.target)
+    
         if (event.target.classList.contains('launchpad__item-btn')) {
             
-            
-            
             let dataKey = event.target.getAttribute('data-key');
-
+    
+            localStorage.setItem('dataKey', JSON.stringify(dataKey));
+        }
+    
+        if (event.target.classList.contains('project__item')) {
             
+            event.preventDefault()
+            console.log('SASE')
+            let dataKey = event.target.getAttribute('data-key');
+    
             localStorage.setItem('dataKey', JSON.stringify(dataKey));
         }
     });
+    
+    // });
+
+    // let allLaunchpadItemsBtns = document.querySelectorAll('.launchpad__item a');
+
     // log("=====")
     // log(allLaunchpadItemsBtns)
     // allLaunchpadItemsBtns.forEach((el) => {
@@ -1045,11 +1055,10 @@ async function createLaunchpadPage() {
 
 
 
-
 async function getLaunchpadNftContainer(canister_number) {
 
     // let firstTokenURI = await 
-
+ 
 };
 
 
@@ -1329,11 +1338,11 @@ async function createIndexPage() {
 
     ltr.forEach((x) => {
         log('xxxx')
-        log(x[1][0][0].metadata)
+        log(x)
         let launchItem = `
             <li class="splide__slide" >
                 <div class="slider__item" >
-                    <a href="info.html" class="project__item" style="max-height: 250px;
+                    <a href="/info" class="project__item" data-key="${x[0]}" style="max-height: 250px;
                     display: flex;
                     align-items: center;">
                         <img class="img" src="http://icp-control.com/${x[1][0][0].metadata.media}" alt="">
@@ -1346,6 +1355,19 @@ async function createIndexPage() {
     });
 
 
+
+    let projectItems = document.querySelectorAll('.project__item');
+
+    projectItems.forEach((g) => {
+        g.addEventListener('click', function(event) {
+            
+
+            let dataKey = this.getAttribute('data-key');
+    
+            localStorage.setItem('dataKey', JSON.stringify(dataKey));
+        
+        });
+    });
 
 
 
