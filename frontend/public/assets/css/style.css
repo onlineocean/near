@@ -706,7 +706,7 @@ p {
 }
 
 .launchpad__item {
-  max-width: 350px;
+  max-width: 398px;
   width: 100%;
   min-height: 400px;
   background: #1D1625;
@@ -3354,7 +3354,7 @@ p {
 .market__catalog-list {
   background: #1D1625;
   border-radius: 25px;
-  padding: 20px;
+  padding: 19px;
   margin-bottom: 20px;
   max-width: 220px;
   margin: 0 5px;

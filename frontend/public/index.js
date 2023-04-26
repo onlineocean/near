@@ -1986,6 +1986,7 @@ function createNFTPageSingle() {
               console.log(walletConnection.getAccountId())
               createRequestSingleNftMarket();
               alert('Your application has been accepted, after consideration you will be contacted and you will receive a notification by email');
+              location.reload();
             }
 
             
@@ -2048,6 +2049,7 @@ function createNFTPageMultiply() {
                 console.log(walletConnection.getAccountId())
                 createRequest();
                 alert('Your application has been accepted, after consideration you will be contacted and you will receive a notification by email');
+                location.reload();
             }
 
         });
@@ -2267,6 +2269,11 @@ async function createCardPage() {
 
     // BUY BUTTON
     let buyButton = document.querySelector('.card__right-btn .buy__btn');
+
+
+    if (nn[1].owner_id == walletConnection.account().accountId) {
+        buyButton.remove();
+    }
 
 
 
@@ -2739,9 +2746,11 @@ function defaultFromMarket() {
     let indexOfArr1 = 0;
     const markerItem = document.querySelectorAll('.market__list-item');
     let whichCliced = '';
+    
     for (let i = 0; i < markerItem.length; i++) {
         const el = markerItem[i];
         el.addEventListener('click', () => {
+            console.log(whichCliced)
             indexOfArr1 = i
             whichCliced = el.textContent;
     

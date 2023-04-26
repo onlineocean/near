@@ -11,30 +11,7 @@ let market = {
                             <img src="assets/img/close-arrow.svg" alt="">
                         </div>
                     </div>
-                    <div class="market__slide-list">
-                        <div class="market__slide-item" data-slide>
-                            <div class="market__slide-name">Art or Games</div>
-                                <div class="market__slide-icon market__slide-icon--class">
-                                    <img src="assets/img/down-arrow.svg" alt="">
-                                </div>
-                        </div>
-                        <div class="market__list">
-                            <div class="check-height">
-                                <div class="market__list-item ">
-                                    <img class="market__list-avat" src="assets/img/avatar.png" alt="">
-                                    <div class="market__list-name">
-                                        Art
-                                    </div>
-                                </div>
-                                <div class="market__list-item ">
-                                    <img class="market__list-avat" src="assets/img/avatar.png" alt="">
-                                    <div class="market__list-name">
-                                        Game
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="market__slide-list blockchain">
                         <div class="market__slide-item" data-slide>
                             <div class="market__slide-name">Blockchain</div>
@@ -117,6 +94,53 @@ let market = {
                                     </div>
                                 </div>
                             </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="market__catalog">
+                <div class="count-copies">results</div>
+                <div class="clear-all">
+                    <div class="chosen-categories"></div>
+                    <div class="clear">Clear All</div>
+                </div>
+                <div class="market__catalog-flex">
+                    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+                
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    `,
+    zapas : `
+
+
+    <div class="market__slide-list">
+                        <div class="market__slide-item" data-slide>
+                            <div class="market__slide-name">Art or Games</div>
+                                <div class="market__slide-icon market__slide-icon--class">
+                                    <img src="assets/img/down-arrow.svg" alt="">
+                                </div>
+                        </div>
+                        <div class="market__list">
+                            <div class="check-height">
+                                <div class="market__list-item ">
+                                    <img class="market__list-avat" src="assets/img/avatar.png" alt="">
+                                    <div class="market__list-name">
+                                        Art
+                                    </div>
+                                </div>
+                                <div class="market__list-item ">
+                                    <img class="market__list-avat" src="assets/img/avatar.png" alt="">
+                                    <div class="market__list-name">
+                                        Game
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -222,24 +246,6 @@ let market = {
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="market__catalog">
-                <div class="count-copies">results</div>
-                <div class="clear-all">
-                    <div class="chosen-categories"></div>
-                    <div class="clear">Clear All</div>
-                </div>
-                <div class="market__catalog-flex">
-                    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-                
-                
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
     `
 }
 
